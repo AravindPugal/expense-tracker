@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=B612:wght@400;700&display=swap");
+body {
+  /* rgb(81, 169, 179) */
+  background-color: rgb(217, 67, 34);
+  font-family: "B612", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+h1 {
+  color: rgb(255, 254, 255);
+  margin-bottom: 10px;
+  text-shadow: 10px 10px 9px rgb(48, 43, 42);
+}
+h2,
+h3 {
+  font-weight: 700;
+  color: rgb(255, 254, 255);
+  margin-bottom: 3px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  padding: 0 5vw 10px;
+  min-width: 300px;
+  margin: auto;
+  background-color: rgb(57, 66, 65);
+}
+
+.income-expense {
+  display: flex;
+  box-shadow: 10px 10px 9px -3px rgb(48, 43, 42);
+}
+.income {
+  box-sizing: border-box;
+  padding: 0px 10px;
+  width: 100%;
+  background-color: rgb(86, 212, 86);
+}
+.expense {
+  box-sizing: border-box;
+  padding: 0px 10px;
+  width: 100%;
+  background-color: rgb(217, 67, 34);
+}
+.amount {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input {
+  height: 30px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+input[type="text"]:focus {
+  outline: none;
+  border: 3px solid rgb(217, 67, 34);
+  margin-bottom: 10px;
+}
+.input-form button {
+  height: 35px;
+  width: 75%;
+  margin: auto;
+  font-size: 1rem;
+  font-weight: 900;
+  background-color: rgb(217, 67, 34);
+  color: rgb(255, 255, 250);
+  border: 0;
+  transition: all 0.2s linear;
+}
+.input-form button:hover {
+  background-color: rgb(255, 255, 250);
+  color: rgb(217, 67, 34);
+  border: 3px solid rgb(217, 67, 34);
+  box-shadow: 10px 10px 9px -3px rgb(48, 43, 42);
+}
+.input-form button:focus {
+  outline: none;
+}
+
+.transaction-list {
+  padding-left: 0%;
+}
+.list-item {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  grid-template-areas: "close-btn trans-text amount";
+  align-items: center;
+  height: 35px;
+  border-right: 5px solid rgb(86, 212, 86);
+  background-color: rgb(221, 209, 209);
+  box-shadow: 10px 10px 9px -3px rgb(48, 43, 42);
+  margin-bottom: 10px;
+}
+.list-item:hover > .close-btn:first-child {
+  color: rgb(217, 67, 34);
+}
+.close-btn {
+  grid-area: close-btn;
+  color: rgb(221, 209, 209);
+}
+.trans-text {
+  grid-area: trans-text;
+}
+.trans-amoutn {
+  grid-area: amount;
+}
+.red-right-border {
+  border-right: 5px solid rgb(217, 67, 34);
+}

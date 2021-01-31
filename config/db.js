@@ -1,9 +1,9 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
+const personalData = require('./personal');
 
 const connectDB = async () => {
     try {
-        const connection = await mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+        const connection = await mongoose.connect(personalData.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log(connection.connection.host);
 
     } catch (error) {

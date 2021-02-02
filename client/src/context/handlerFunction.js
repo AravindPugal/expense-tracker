@@ -1,5 +1,7 @@
 export default function handlerFunction(previousState, action) {
     switch (action.type) {
+        case "get":
+            return { ...previousState }
         case "add":
             return { ...previousState, transactions: [...previousState.transactions, action.data] }
         case "remove":

@@ -1,8 +1,7 @@
 import { createContext } from 'react';
 
 export const expenseDetails = {
-    transactions:
-        [],
+    transactions: [],
 }
 const globalState = createContext();
 export default globalState;

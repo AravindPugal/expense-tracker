@@ -3,7 +3,7 @@ const express = require('express');
 const transactionRouter = require('./routes/transactionRoute');
 const connectDb = require('./config/db');
 const app = express();
-
+app.use(express.json());
 app.use('/transaction', transactionRouter);
 connectDb();
 

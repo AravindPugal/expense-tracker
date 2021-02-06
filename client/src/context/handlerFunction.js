@@ -1,14 +1,14 @@
 export default function handlerFunction(previousState, action) {
     switch (action.type) {
         case "get":
-            return { ...previousState }
+            return { ...previousState, transactions: action.data };
         case "add":
             return { ...previousState, transactions: [...previousState.transactions, action.data] }
         case "remove":
             console.log(previousState);
             return {
                 ...previousState,
-                transactions: previousState.transactions.filter(transaction => transaction.id !== action.id)
+                transactions: previousState.transactions.filter(transaction => transaction._id !== action.id)
             }
         default:
             return previousState;

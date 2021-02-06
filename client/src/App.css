@@ -17,6 +17,10 @@ h3 {
   color: rgb(255, 254, 255);
   margin-bottom: 3px;
 }
+.balance {
+  color: rgb(86, 212, 86);
+  margin: 1.1rem 0;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -108,7 +112,7 @@ input[type="text"]:focus {
 .trans-text {
   grid-area: trans-text;
 }
-.trans-amoutn {
+.trans-amount {
   grid-area: amount;
 }
 .red-right-border {

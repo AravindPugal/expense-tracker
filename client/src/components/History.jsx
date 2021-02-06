@@ -1,16 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ListItem from './ListItem';
-import globalState from '../context/contextVariable';
+import { globalState } from '../context/GlobalState';
 
 const History = () => {
-    const { transactions } = useContext(globalState);
+    const globalstate = useContext(globalState);
+    useEffect(() => {
+        globalstate.getInitialData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <div className="history">
             <h3>History</h3>
             <ul className="transaction-list">
-                {transactions.map((transaction) => (
+                {globalstate.transactions.map((transaction) => (
                     <ListItem
-                        key={transaction.id}
+                        key={transaction._id}
                         transactionDetails={transaction} />
                 ))}
             </ul>

@@ -1,11 +1,27 @@
 import { useReducer } from 'react';
-import globalState, { expenseDetails } from './contextVariable'
 import handlerFunction from './handlerFunction';
+import { createContext } from 'react';
+import axios from 'axios';
+
+const expenseDetails = {
+    transactions: [{ id: 1, text: 'dkdkdk', amount: 20000 }, { id: 2, text: 'dkjfdk', amount: -193 }],
+}
+export const globalState = createContext();
+
+
 const GlobalState = (probs) => {
     const [state, globalStateHandler] = useReducer(handlerFunction, expenseDetails);
-    const newObject = {}
+    const getInitialData = async () => {
+        const response = await axios.get('transaction');
+        console.log('inside getInitialData');
+        const transaction = await response.data.data;
+        console.log(transaction);
+        globalStateHandler({ type: 'get', data: transaction });
+    }
+
+
     return (
-        <globalState.Provider value={{ ...state, globalStateHandler }}>
+        <globalState.Provider value={{ ...state, globalStateHandler, getInitialData }}>
             {probs.children}
         </globalState.Provider>
     )

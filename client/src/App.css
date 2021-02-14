@@ -6,7 +6,7 @@ body {
   font-weight: 700;
   letter-spacing: 2px;
 }
-h1 {
+h1.header {
   color: rgb(255, 254, 255);
   margin-bottom: 10px;
   text-shadow: 10px 10px 9px rgb(48, 43, 42);

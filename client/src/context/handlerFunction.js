@@ -8,7 +8,9 @@ export default function handlerFunction(previousState, action) {
             console.log(previousState);
             return {
                 ...previousState,
-                transactions: previousState.transactions.filter(transaction => transaction._id !== action.id)
+                transactions: previousState.transactions.filter((transaction) => {
+                    return transaction._id !== action.id;
+                })
             }
         default:
             return previousState;

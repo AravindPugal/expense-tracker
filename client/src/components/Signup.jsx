@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import axios from 'axios';
 
 function Copyright() {
     return (
@@ -47,7 +48,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+    const [formData, setFormData] = useState({ username: "", password: "" });
     const classes = useStyles();
+    async function sndFormData(e) {
+        e.preventDefault();
+        const response = await axios.post("http://localhost:5000/authentication/sign-in",
+            {
+                username: formData.username,
+                password: formData.password
+            });
+        console.log(response);
+        setFormData({ username: "", password: "" })
+    }
+    function updateFormData(e) {
+        const { name, value } = e.target;
+        setFormData(previousState => ({ ...previousState, [name]: value }))
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -65,11 +81,13 @@ export default function SignIn() {
                         margin="normal"
                         required
                         fullWidth
-                        name="email"
+                        name="username"
                         label="Email Address"
                         type="email"
                         id="email"
                         autoComplete="current-password"
+                        onChange={updateFormData}
+                        value={formData.username}
                     />
                     <TextField
                         variant="outlined"
@@ -81,6 +99,8 @@ export default function SignIn() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        onChange={updateFormData}
+                        value={formData.password}
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -92,6 +112,7 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={sndFormData}
                     >
                         Sign Up
                     </Button>

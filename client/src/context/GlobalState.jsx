@@ -4,7 +4,7 @@ import { createContext } from 'react';
 import axios from 'axios';
 
 const expenseDetails = {
-    transactions: [{ _id: 1, text: 'dkdkdk', amount: 20000 }, { _id: 2, text: 'dkjfdk', amount: -193 }],
+    transactions: [],
 }
 export const globalState = createContext();
 

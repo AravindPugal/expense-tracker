@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 transactionSchema = new mongoose.Schema({
+    _id: {
+        type: String
+    },
     text: {
         type: String,
         required: [true, 'text is missing']

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { globalState } from '../context/GlobalState';
-// import { v4 as generateId } from 'uuid'
+import { v4 as generateId } from 'uuid'
 
 const InputForm = () => {
     const expenseDetails = useContext(globalState);
@@ -12,8 +12,9 @@ const InputForm = () => {
     }
     const addTransaction = (e) => {
         e.preventDefault();
-        expenseDetails.globalStateHandler({ type: "add", data: { text: formData.text, amount: formData.amount } });
+        expenseDetails.globalStateHandler({ type: "add", data: { _id: generateId(), text: formData.text, amount: formData.amount } });
         axios.post('/transaction', {
+            _id: generateId(),
             text: formData.text,
             amount: formData.amount
         })
